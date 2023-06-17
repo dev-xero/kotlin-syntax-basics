@@ -3,6 +3,11 @@ import kotlin.random.Random
 class RockPaperScissors {
     private val options = arrayOf("rock", "paper", "scissors")
     private var guess: String = ""
+    private val choiceToBeatMap: Map<String, String> = hashMapOf(
+        "scissors" to "paper",
+        "paper" to "rock",
+        "rock" to "scissors"
+    )
 
     private fun showInstructions() {
         println("This is a basic rock-paper-scissors game.")
@@ -16,14 +21,13 @@ class RockPaperScissors {
         return guess
     }
 
-    private fun isCorrectGuess(userGuess: String): Boolean {
-        val correctedGuess = when (userGuess.lowercase()) {
+    private fun correctGuess(userGuess: String): String {
+        return when(userGuess.lowercase()) {
             "r" -> "rock"
             "p" -> "paper"
             "s" -> "scissors"
             else -> ""
         }
-        return correctedGuess == guess
     }
 
     private fun getUserGuess(): String? {
@@ -31,10 +35,13 @@ class RockPaperScissors {
         return readlnOrNull()
     }
 
-    private fun endGame() {
-        println("You guessed right!")
-        println("The computer picked $guess!")
-        println("The game will now end :3")
+    private fun beatsOther(userGuess: String): Boolean {
+        return choiceToBeatMap[userGuess] == guess
+    }
+
+    private fun endGame(userGuess: String) {
+        println("\nYou win! $userGuess beats $guess!")
+        println("...The game will end now :3")
     }
 
     fun startGame() {
@@ -42,12 +49,16 @@ class RockPaperScissors {
         guess()
 
         while (true) {
-            val userGuess = getUserGuess()
-            if (userGuess != null) {
-                if (isCorrectGuess(userGuess)) {
-                    endGame()
-                    break
-                }
+            val userGuess = correctGuess(getUserGuess() ?: "")
+            if (beatsOther(userGuess)) {
+                endGame(userGuess)
+                break
+            } else if (userGuess == guess) {
+                println("That's a draw!\n")
+                guess()
+            } else {
+                println("Nope...${userGuess} doesn't beat $guess\n")
+                guess()
             }
         }
     }
