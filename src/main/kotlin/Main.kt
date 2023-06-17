@@ -1,5 +1,11 @@
 fun main() {
     // Testing
+    println("\n- Rock-Paper-Scissors -\n")
+    val game = RockPaperScissors()
+    game.startGame()
+}
+
+fun doStuff() {
     printMsg("Hello, Kotlin")
     printMsg("This is pretty cool")
     printMsg(square(3))
@@ -27,10 +33,6 @@ fun main() {
 
     val phraseOMatic = PhraseOMatic()
     printMsg(phraseOMatic.makePhrase())
-
-    println("\n\n\tRock-Paper-Scissors")
-    val game = RockPaperScissors()
-    game.startGame()
 }
 
 fun printMsg(msg: String) {

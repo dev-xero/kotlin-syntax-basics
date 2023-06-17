@@ -5,10 +5,10 @@ class RockPaperScissors {
     private var guess: String = ""
 
     private fun showInstructions() {
-        println("This is a basic rock-paper-scissors game")
-        println("The computer will pick one of these and your objective is to guess it correctly")
-        println("You can answer with [R] for rock, [P] for paper or [S] for scissors")
-        println("The game doesn't end until you get it right...")
+        println("This is a basic rock-paper-scissors game.")
+        println("The computer will pick one of these and your objective is to guess it correctly.")
+        println("You can answer with [R] for rock, [P] for paper or [S] for scissors.")
+        println("The game doesn't end until you beat the computer...\n")
     }
 
     private fun guess(): String {
@@ -27,7 +27,7 @@ class RockPaperScissors {
     }
 
     private fun getUserGuess(): String? {
-        print("Guess: ")
+        print("Your Guess: ")
         return readlnOrNull()
     }
 
