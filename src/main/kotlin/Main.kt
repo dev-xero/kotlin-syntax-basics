@@ -1,4 +1,4 @@
-fun main(args: Array<String>) {
+fun main() {
     // this function is just like Java's "main()" method, it accepts an array of strings
     printMsg("Hello, Kotlin")
     printMsg("This is pretty cool")
