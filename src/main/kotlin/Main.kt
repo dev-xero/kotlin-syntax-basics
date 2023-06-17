@@ -18,8 +18,12 @@ fun main() {
 
     print("Enter a number: ")
     val num = readln().toInt()
+
     print("The index of \"$num\" is: ")
     printMsg(binarySearch(testArray, num))
+
+    print("Square root of 64 is: ")
+    printMsg(squareRoot(64))
 }
 
 fun printMsg(msg: String) {
@@ -84,4 +88,26 @@ fun recursiveBinarySearch(theArray: Array<Int>, key: Int, left: Int, right: Int)
         return recursiveBinarySearch(theArray, key, left, mid - 1)
 
     return recursiveBinarySearch(theArray, key, mid + 1, right)
+}
+
+fun squareRoot(num: Int): Int {
+    var start = 0
+    var end = num
+
+    while (start < end) {
+        val mid = start + (end - start) / 2
+        val square = mid * mid
+
+        if (square == num)
+            return mid
+
+        if (square > num) {
+            end = mid - 1
+            continue
+        }
+
+        start = mid + 1
+    }
+
+    return start
 }
