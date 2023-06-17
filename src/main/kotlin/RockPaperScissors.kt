@@ -16,12 +16,12 @@ class RockPaperScissors {
         println("The game doesn't end until you beat the computer...\n")
     }
 
-    private fun guess(): String {
+    private fun cpuGuess(): String {
         guess = options[Random.nextInt(options.size)]
         return guess
     }
 
-    private fun correctGuess(userGuess: String): String {
+    private fun correctUserGuess(userGuess: String): String {
         return when(userGuess.lowercase()) {
             "r" -> "rock"
             "p" -> "paper"
@@ -35,7 +35,7 @@ class RockPaperScissors {
         return readlnOrNull()
     }
 
-    private fun beatsOther(userGuess: String): Boolean {
+    private fun guessBeats(userGuess: String): Boolean {
         return choiceToBeatMap[userGuess] == guess
     }
 
@@ -46,19 +46,19 @@ class RockPaperScissors {
 
     fun startGame() {
         showInstructions()
-        guess()
+        cpuGuess()
 
         while (true) {
-            val userGuess = correctGuess(getUserGuess() ?: "")
-            if (beatsOther(userGuess)) {
+            val userGuess = correctUserGuess(getUserGuess() ?: "")
+            if (guessBeats(userGuess)) {
                 endGame(userGuess)
                 break
             } else if (userGuess == guess) {
                 println("That's a draw!\n")
-                guess()
+                cpuGuess()
             } else {
                 println("Nope...${userGuess} doesn't beat $guess\n")
-                guess()
+                cpuGuess()
             }
         }
     }
