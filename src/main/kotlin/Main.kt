@@ -15,6 +15,11 @@ fun main() {
 
     print("The index of \"4\" is: ")
     printMsg(recursiveBinarySearch(testArray, 4, 0, testArray.size - 1))
+
+    print("Enter a number: ")
+    val num = readln().toInt()
+    print("The index of \"$num\" is: ")
+    printMsg(binarySearch(testArray, num))
 }
 
 fun printMsg(msg: String) {
