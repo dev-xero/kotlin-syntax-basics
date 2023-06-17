@@ -63,4 +63,13 @@ class RockPaperScissors {
         }
     }
 
+    // TESTS
+    fun testUserGuess(userGuess: String, cpuGuess: String): Boolean {
+        return choiceToBeatMap[userGuess] == cpuGuess
+    }
+
+    fun testCorrectedGuess(userGuess: String): String {
+        return correctUserGuess(userGuess)
+    }
+
 }
