@@ -24,6 +24,9 @@ fun main() {
 
     print("Square root of 64 is: ")
     printMsg(squareRoot(64))
+
+    val phraseOMatic = PhraseOMatic()
+    printMsg(phraseOMatic.makePhrase())
 }
 
 fun printMsg(msg: String) {
