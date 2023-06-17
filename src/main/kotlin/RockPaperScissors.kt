@@ -1,4 +1,3 @@
-import org.testng.annotations.Test
 import kotlin.random.Random
 
 class RockPaperScissors {
