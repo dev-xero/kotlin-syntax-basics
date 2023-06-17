@@ -12,6 +12,9 @@ fun main() {
 
     print("The index of \"5\" is: ")
     printMsg(binarySearch(testArray, 2))
+
+    print("The index of \"4\" is: ")
+    printMsg(recursiveBinarySearch(testArray, 4, 0, testArray.size - 1))
 }
 
 fun printMsg(msg: String) {
@@ -61,4 +64,19 @@ fun binarySearch(theArray: Array<Int>, key: Int): Int {
     }
 
     return -1
+}
+
+fun recursiveBinarySearch(theArray: Array<Int>, key: Int, left: Int, right: Int): Int {
+    if (left > right)
+        return -1
+
+    val mid = left + (right - left) / 2
+
+    if (theArray[mid] == key)
+        return mid
+
+    if (theArray[mid] > key)
+        return recursiveBinarySearch(theArray, key, left, mid - 1)
+
+    return recursiveBinarySearch(theArray, key, mid + 1, right)
 }
