@@ -34,8 +34,8 @@ class RockPaperScissors {
 
     private fun endGame() {
         println("You guessed right!")
-        print("The computer picked $guess!")
-        print("The game will now end :3")
+        println("The computer picked $guess!")
+        println("The game will now end :3")
     }
 
     fun startGame() {

@@ -28,7 +28,7 @@ fun main() {
     val phraseOMatic = PhraseOMatic()
     printMsg(phraseOMatic.makePhrase())
 
-    println("Rock-Paper-Scissors")
+    println("\n\n\tRock-Paper-Scissors")
     val game = RockPaperScissors()
     game.startGame()
 }
