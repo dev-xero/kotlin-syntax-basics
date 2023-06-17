@@ -1,3 +1,5 @@
+import org.testng.AssertJUnit.assertNotNull
+import org.testng.annotations.Test
 import kotlin.random.Random
 
 class PhraseOMatic {
@@ -15,6 +17,13 @@ class PhraseOMatic {
         val phraseThree = phraseArrayThree[Random.nextInt(lenThree)]
 
         return "What we need is $phraseOne $phraseTwo $phraseThree"
+    }
+
+    @Test
+    fun testMakePhrase() {
+        val phrase = makePhrase()
+        assertNotNull(phrase)
+        println(phrase)
     }
 
 }
